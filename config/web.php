@@ -23,6 +23,9 @@ $config = [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
         ],
+        'session' => [
+            'timeout' => 7200,
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
