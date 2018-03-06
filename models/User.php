@@ -8,33 +8,19 @@ use Yii;
 
 class User extends ActiveRecord implements IdentityInterface
 {
-    //public $id;
-    //public $username;
-    //public $password;
-    //public $authKey;
-    //public $accessToken;
-
-    //private static $users = [
-    //    '100' => [
-    //        'id' => '100',
-    //        'username' => 'admin',
-    //        'password' => 'admin',
-    //        'authKey' => 'test100key',
-    //        'accessToken' => '100-token',
-    //    ],
-    //    '101' => [
-    //        'id' => '101',
-    //        'username' => 'demo',
-    //        'password' => 'demo',
-    //        'authKey' => 'test101key',
-    //        'accessToken' => '101-token',
-    //    ],
-    //];
+    public function rules()
+    {
+        return [
+            // name, email, subject 和 body 属性必须有值
+            [['username', 'password'], 'required'],
+        ];
+    }
 
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {
             if ($this->isNewRecord) {
+                $this->password = Yii::$app->security->generatePasswordHash($this->password);//新建时保存hash
                 $this->auth_key = Yii::$app->security->generateRandomString();
             }
             return true;
