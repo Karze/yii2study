@@ -35,26 +35,55 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
+
+    if(Yii::$app->user->identity->isAdmin()) {
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => [
+                ['label' => '首页', 'url' => ['/site/index']],
+                ['label' => '用户管理', 'url' => ['/user/index']],
+                ['label' => '专业管理', 'url' => ['/dict-major/index']],
+                ['label' => '职称管理', 'url' => ['/dict-title/index']],
+                ['label' => '院系管理', 'url' => ['/dict-department/index']],
+                ['label' => '关于', 'url' => ['/site/about']],
+                ['label' => '联系方式', 'url' => ['/site/contact']],
+                Yii::$app->user->isGuest ? (
+                ['label' => '登录', 'url' => ['/site/login']]
+                ) : (
+                    '<li>'
+                    . Html::beginForm(['/site/logout'], 'post')
+                    . Html::submitButton(
+                        '登出 (' . Yii::$app->user->identity->username . ')',
+                        ['class' => 'btn btn-link logout']
+                    )
+                    . Html::endForm()
+                    . '</li>'
                 )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
+            ],
+        ]);
+    } else {
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => [
+                ['label' => '首页', 'url' => ['/site/index']],
+                ['label' => '关于', 'url' => ['/site/about']],
+                ['label' => '联系方式', 'url' => ['/site/contact']],
+                Yii::$app->user->isGuest ? (
+                ['label' => '登录', 'url' => ['/site/login']]
+                ) : (
+                    '<li>'
+                    . Html::beginForm(['/site/logout'], 'post')
+                    . Html::submitButton(
+                        '登出 (' . Yii::$app->user->identity->username . ')',
+                        ['class' => 'btn btn-link logout']
+                    )
+                    . Html::endForm()
+                    . '</li>'
+                )
+            ],
+        ]);
+    }
+
     NavBar::end();
     ?>
 

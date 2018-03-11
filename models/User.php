@@ -16,6 +16,24 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
+    //软删除
+//    public function delete()
+//    {
+//        $this->deleted_at = date("Y-m-d H:i:s", time());
+//        $this->save();
+//    }
+
+    public function attributeLabels()
+    {
+        return [
+            'id' => Yii::t('app', 'ID'),
+            'username' => Yii::t('app', 'Username'),
+            'password' => Yii::t('app', 'Password'),
+            'created_at' => Yii::t('app', 'Created At'),
+            'updated_at' => Yii::t('app', 'Updated At'),
+        ];
+    }
+
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {
@@ -105,5 +123,10 @@ class User extends ActiveRecord implements IdentityInterface
     {
         //$hash = Yii::$app->security->generatePasswordHash($password);
         return Yii::$app->security->validatePassword($password, $this->password);
+    }
+
+    public function isAdmin()
+    {
+        return $this->id == 1;
     }
 }

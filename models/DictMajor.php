@@ -5,19 +5,19 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "dict_title".
+ * This is the model class for table "dict_major".
  *
  * @property int $id
  * @property string $name
  */
-class DictTitle extends \yii\db\ActiveRecord
+class DictMajor extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'dict_title';
+        return 'dict_major';
     }
 
     /**
