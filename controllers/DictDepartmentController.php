@@ -5,30 +5,14 @@ namespace app\controllers;
 use Yii;
 use app\models\DictDepartment;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
+use app\components\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * DictDepartmentController implements the CRUD actions for DictDepartment model.
  */
 class DictDepartmentController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all DictDepartment models.
      * @return mixed

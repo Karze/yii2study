@@ -32,6 +32,7 @@ class Teacher extends \yii\db\ActiveRecord
     {
         return [
             [['title_id', 'department_id'], 'integer'],
+            [['name', 'title_id', 'department_id'], 'required'],
             [['created_at', 'updated_at', 'deleted_at'], 'safe'],
             [['name'], 'string', 'max' => 255],
         ];

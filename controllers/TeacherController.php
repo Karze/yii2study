@@ -7,11 +7,9 @@ use app\models\DictTitle;
 use Yii;
 use app\models\Teacher;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 use yii\base\Module;
-use yii\filters\AccessControl;
+use app\components\Controller;
 
 /**
  * TeacherController implements the CRUD actions for Teacher model.
@@ -27,32 +25,6 @@ class TeacherController extends Controller
 
         $this->titleMap = DictTitle::getMap();
         $this->departmentMap = DictDepartment::getMap();
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['login'],
-                'rules' => [
-                    [
-                        'actions' => ['login'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
     }
 
     /**
