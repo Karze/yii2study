@@ -35,6 +35,7 @@ return [
     /**
      * Title
      */
+    "Title" => "职称",
     "Dict Titles" => "职称列表",
     "Create Dict Title" => "新增职称",
     "Update Dict Title: {nameAttribute}" => "更新职称：{nameAttribute}",
@@ -42,7 +43,14 @@ return [
     /**
      * Department
      */
+    "Department" => "所属院系",
     "Dict Departments" => "院系列表",
     "Create Dict Department" => "新增院系",
     "Update Dict Department: {nameAttribute}" => "更新院系：{nameAttribute}",
+
+    /**
+     * Teacher
+     */
+    "Teachers" => "教师列表",
+    "Create Teacher" => "新增教师",
 ];

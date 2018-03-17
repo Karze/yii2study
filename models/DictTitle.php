@@ -40,4 +40,16 @@ class DictTitle extends \yii\db\ActiveRecord
             'name' => Yii::t("app", "Name"),
         ];
     }
+
+    public static function getMap()
+    {
+        $map = [];
+
+        $models = DictTitle::find()->all();
+        foreach ($models as $model) {
+            $map[$model->id] = $model->name;
+        }
+
+        return $map;
+    }
 }

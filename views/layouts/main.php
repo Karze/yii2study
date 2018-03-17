@@ -9,6 +9,8 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\helpers\ArrayHelper;
+
 
 AppAsset::register($this);
 ?>
@@ -36,17 +38,28 @@ AppAsset::register($this);
         ],
     ]);
 
-    if(Yii::$app->user->identity->isAdmin()) {
+    if(! Yii::$app->user->isGuest && Yii::$app->user->identity->isAdmin()) {
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
                 ['label' => '首页', 'url' => ['/site/index']],
-                ['label' => '用户管理', 'url' => ['/user/index']],
-                ['label' => '专业管理', 'url' => ['/dict-major/index']],
-                ['label' => '职称管理', 'url' => ['/dict-title/index']],
-                ['label' => '院系管理', 'url' => ['/dict-department/index']],
-                ['label' => '关于', 'url' => ['/site/about']],
-                ['label' => '联系方式', 'url' => ['/site/contact']],
+//                ['label' => '用户管理', 'url' => ['/user/index']],
+//                ['label' => '教师管理', 'url' => ['/teacher/index']],
+//                ['label' => '专业管理', 'url' => ['/dict-major/index']],
+//                ['label' => '职称管理', 'url' => ['/dict-title/index']],
+//                ['label' => '院系管理', 'url' => ['/dict-department/index']],
+                [
+                    'label' => '内容管理',
+                    'items' => [
+                        ['label' => '用户管理', 'url' => ['/user/index']],
+                        ['label' => '教师管理', 'url' => ['/teacher/index']],
+                        ['label' => '专业管理', 'url' => ['/dict-major/index']],
+                        ['label' => '职称管理', 'url' => ['/dict-title/index']],
+                        ['label' => '院系管理', 'url' => ['/dict-department/index']],
+                    ],
+                ],
+                //['label' => '关于', 'url' => ['/site/about']],
+                //['label' => '联系方式', 'url' => ['/site/contact']],
                 Yii::$app->user->isGuest ? (
                 ['label' => '登录', 'url' => ['/site/login']]
                 ) : (

@@ -40,4 +40,16 @@ class DictDepartment extends \yii\db\ActiveRecord
             'name' => Yii::t('app', 'Name'),
         ];
     }
+
+    public static function getMap()
+    {
+        $map = [];
+
+        $models = DictDepartment::find()->all();
+        foreach ($models as $model) {
+            $map[$model->id] = $model->name;
+        }
+
+        return $map;
+    }
 }
