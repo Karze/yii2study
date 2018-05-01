@@ -31,7 +31,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => Yii::t('app', Yii::$app->name),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -42,20 +42,25 @@ AppAsset::register($this);
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
-                ['label' => '首页', 'url' => ['/site/index']],
+                [
+                    'label' => '内容管理',
+                    //'url' => ['/site/index'],
+                    'items' => [
+                        ['label' => '教师管理', 'url' => ['/teacher/index']],
+                        ['label' => '专业管理', 'url' => ['/dict-major/index']],
+                        ['label' => '职称管理', 'url' => ['/dict-title/index']],
+                        ['label' => '院系管理', 'url' => ['/dict-department/index']],
+                    ],
+                ],
 //                ['label' => '用户管理', 'url' => ['/user/index']],
 //                ['label' => '教师管理', 'url' => ['/teacher/index']],
 //                ['label' => '专业管理', 'url' => ['/dict-major/index']],
 //                ['label' => '职称管理', 'url' => ['/dict-title/index']],
 //                ['label' => '院系管理', 'url' => ['/dict-department/index']],
                 [
-                    'label' => '内容管理',
+                    'label' => '系统管理',
                     'items' => [
                         ['label' => '用户管理', 'url' => ['/user/index']],
-                        ['label' => '教师管理', 'url' => ['/teacher/index']],
-                        ['label' => '专业管理', 'url' => ['/dict-major/index']],
-                        ['label' => '职称管理', 'url' => ['/dict-title/index']],
-                        ['label' => '院系管理', 'url' => ['/dict-department/index']],
                     ],
                 ],
                 //['label' => '关于', 'url' => ['/site/about']],

@@ -6,6 +6,7 @@
  * Time: 9:16
  */
 return [
+    "PMS" => "学生论文管理系统",
     "Save" => "保存",
     "ID" => "ID",
     "Created At" => "创建时间",
