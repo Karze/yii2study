@@ -15,6 +15,7 @@ return [
     "Update" => "更新",
     "Delete" => "删除",
     "Name" => "名称",
+    "PName" => "姓名",
 
     /**
      * User
@@ -54,4 +55,19 @@ return [
      */
     "Teachers" => "教师列表",
     "Create Teacher" => "新增教师",
+
+    /**
+     * Student
+     */
+    "Students" => "学生列表",
+    "Create Student" => "新增学生",
+    "Code" => "学号",
+    "Grade" => "年级",
+    "Major" => "专业",
+    "Year" => "毕业年份",
+    "Teacher" => "指导老师",
+    "College Level" => "院优秀毕业论文",
+    "School Level" => "校优秀毕业论文",
+    "File List" => "文件列表",
+    "Update Student: {nameAttribute}" => "更新学生信息：{nameAttribute}",
 ];

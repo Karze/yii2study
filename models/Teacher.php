@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\components\DictModel;
 use Yii;
 
 /**
@@ -15,7 +16,7 @@ use Yii;
  * @property string $updated_at 更新时间
  * @property string $deleted_at 删除时间
  */
-class Teacher extends \yii\db\ActiveRecord
+class Teacher extends DictModel
 {
     /**
      * @inheritdoc
@@ -45,7 +46,7 @@ class Teacher extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
+            'name' => Yii::t('app', 'PName'),
             'title_id' => Yii::t('app', 'Title'),
             'department_id' => Yii::t('app', 'Department'),
             'created_at' => Yii::t('app', 'Created At'),

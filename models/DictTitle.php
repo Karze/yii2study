@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\components\DictModel;
 use Yii;
 
 /**
@@ -10,7 +11,7 @@ use Yii;
  * @property int $id
  * @property string $name
  */
-class DictTitle extends \yii\db\ActiveRecord
+class DictTitle extends DictModel
 {
     /**
      * @inheritdoc
@@ -41,15 +42,4 @@ class DictTitle extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function getMap()
-    {
-        $map = [];
-
-        $models = DictTitle::find()->all();
-        foreach ($models as $model) {
-            $map[$model->id] = $model->name;
-        }
-
-        return $map;
-    }
 }

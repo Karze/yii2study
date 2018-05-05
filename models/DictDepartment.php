@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\components\DictModel;
 use Yii;
 
 /**
@@ -10,7 +11,7 @@ use Yii;
  * @property int $id
  * @property string $name
  */
-class DictDepartment extends \yii\db\ActiveRecord
+class DictDepartment extends DictModel
 {
     /**
      * @inheritdoc
