@@ -37,14 +37,15 @@ $root = $model->document ?? md5(rand().time());//利用随机数和时间戳获�
 
     <table class="form-group" id="downlist">
         <tr><th class=""><?= Yii::t('app', 'File List')?></th></tr>
-    <?php foreach ($fileList as $file) {?>
+    <?php if(isset($fileList) && is_array($fileList)) {
+        foreach ($fileList as $file) {?>
             <tr>
                 <?php
                 echo "<td>".$file."</td>";
                 echo "<td><a href='/site/download?root=".$root."&file=".$file."'>"."下载"."</a></td>";
                 ?>
             </tr>
-    <?php } ?>
+    <?php }} ?>
     </table>
     <?php
     // Usage without a model

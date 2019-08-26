@@ -75,6 +75,7 @@ class Student extends \yii\db\ActiveRecord
         $root = $this->document;
         $dir = self::formatDir($root);
         $fileList = [];
+        $files = [];
         if(is_dir($dir)) {
             $files = scandir($dir);
             unset($files[0]);

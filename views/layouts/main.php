@@ -46,6 +46,7 @@ AppAsset::register($this);
                     'label' => '内容管理',
                     //'url' => ['/site/index'],
                     'items' => [
+                        ['label' => '学生管理', 'url' => ['/student/index']],
                         ['label' => '教师管理', 'url' => ['/teacher/index']],
                         ['label' => '专业管理', 'url' => ['/dict-major/index']],
                         ['label' => '职称管理', 'url' => ['/dict-title/index']],
@@ -116,7 +117,8 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+<!--        <p class="pull-left">&copy; My Company --><?//= date('Y') ?><!--</p>-->
+        <p class="pull-left">Developed by ChenRongrong(E-Mail: crrkiller@163.com) in <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
